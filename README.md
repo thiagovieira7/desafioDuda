@@ -3,8 +3,6 @@
 #### `Para execução dos programas utilizamos a extenção Thunder Client no Vs Code`
 
 
-- Acesso atraves do Request https://projetbackend.herokuapp.com como url principal seguido das rotas e subrotas desejadas.
-
 - O arquivo .env deve ser criado com as seguintes informações: 
 
 ```
@@ -18,29 +16,21 @@ PORT =          (informar porta localhost)
 ## Rotas principais
 
 ```
-/paises
-```
-
-```
-/estados
-```
-
-```
-/cidades
+/usuarios
 ```
 
 ## Subrotas
 
 ```
-/listall
+/readeall
 ```
 
 ```
-/listname/:id
+/readid/:id
 ```
 
 ```
-/add
+/create
 ```
 
 ```
@@ -53,115 +43,57 @@ PORT =          (informar porta localhost)
 
 
 ## Opções de rotas banco de dados:
-- Acesso Paises: 
+- Acesso usuários: 
  ``` 
- https://projetbackend.herokuapp.com/paises 
- ```
-- Acesso Estados:
- ```
- https://projetbackend.herokuapp.com/estados 
- ```
-- Acesso Cidades
- ```
- https://projetbackend.herokuapp.com/cidades 
+ localhost:3000/usuarios
  ```
 
 ## Opções de consultas de todos itens gerados no banco de dados
-### ``listall``
+### ``readall``
 
-- Para consultar todo conjunto de informação no banco de dados, deve-se utilizar a url juntamente com a rota desejada (ex: /paises), com a subrota /listall conforme exemplos abaixo:
-
-```
-https://projetbackend.herokuapp.com/paises/listall 
-```
+- Para consultar todo conjunto de informação no banco de dados, deve-se utilizar a url juntamente com a rota desejada (ex: /usuarios), com a subrota /readall conforme exemplos abaixo:
 
 ```
-https://projetbackend.herokuapp.com/estados/listall
-```
-
-```
-https://projetbackend.herokuapp.com/cidades/listall 
+localhost:3000/usuarios/readall
 ```
 
 -Exemplo:
 ```
 { 
-  nome: Cascavel
-  qtdBairros: 18
-  populacao: 330000
-  dtAniversario: 14/11/1951 
+    "_id": "6198651bedd724a0d6bd4672",
+    "nome": "Thiago",
+    "nomeUsuario": "thiagoVieira",
+    "senha": 123456,
+    "dataCriacao": "2021-11-20T03:01:47.033Z",
+    "__v": 0
 
 }
 ```
 
 
 ## Opções de consultas por id
-### ``/listname/:id``
+### ``/readid/:id``
 
-- Para consultar um determinado comnjunto de informações (ex: informações sobre determinado pais) no banco de dados, deve-se utilizar a url juntamente com a rota principal (ex: /paises), com a subrota /listname/[id] conforme exemplos abaixo:
-
-```
-https://projetbackend.herokuapp.com/paises/lisname1
-```
+- Para consultar um determinado comnjunto de informações (ex: informações) no banco de dados, deve-se utilizar a url juntamente com a rota principal (ex: /usuarios), com a subrota /readid/[id] conforme exemplos abaixo:
 
 ```
-https://projetbackend.herokuapp.com/estados/listname3
+localhost:3000/usuarios/readid/6198651bedd724a0d6bd4672
 ```
-
-```
-https://projetbackend.herokuapp.com/cidades/listname7
-```
-
 
 ## Adicionando novos dados
-### ``/add``
+### ``/create``
 
-- Para adicionar novos dados deve-se utilizar a url juntamente com a rota principal (ex: /paises), com a subrota /add conforme exemplos abaixo:
-
-```
-https://projetbackend.herokuapp.com/paises/add
-```
+- Para adicionar novos dados deve-se utilizar a url juntamente com a rota principal (ex: /usuarios), com a subrota /create conforme exemplos abaixo:
 
 ```
-{ 
-  "nome": " "
-  populacao: 
-  linguaMae: " "
-  pib:  
-
-}
-```
-
---------------------------------------------------
-
-
-```
-https://projetbackend.herokuapp.com/estados/add
-```
-
-```
-
-{ 
-  nome: " "
-  regiao: " "
-  populacao: 
-  vlSalarioMin:  
-
-}
-```
-
---------------------------------------------------
-
-```
-https://projetbackend.herokuapp.com/cidades/add
+localhost:3000/usuarios/create
 ```
 
 ```
 { 
-  nome: " " 
-  qtdBairros: 
-  populacao: 
-  dtAniversario:  
+    "nome": "",
+    "nomeUsuario": "",
+    "senha":  
 
 }
 ```
@@ -170,71 +102,27 @@ https://projetbackend.herokuapp.com/cidades/add
 ## Atualizando dados
 ### ``/update/:id``
 
-- Para atualizar os dados deve-se utilizar a url juntamente com a rota principal (ex: /paises), com a subrota /update/[id] conforme exemplos abaixo:
+- Para atualizar os dados deve-se utilizar a url juntamente com a rota principal (ex: /usuarios), com a subrota /update/[id] conforme exemplos abaixo:
 
 ```
-https://projetbackend.herokuapp.com/paises/update/2
-```
-
-```
-{ 
-  "nome": " "
-  populacao: 
-  linguaMae: " "
-  pib:  
-
-}
-```
-
---------------------------------------------------
-
-
-```
-https://projetbackend.herokuapp.com/estados/update/5
+localhost:3000/usuarios/update/6198651bedd724a0d6bd4672
 ```
 
 ```
 { 
-  nome: " "
-  regiao: " "
-  populacao: 
-  vlSalarioMin:  
-
+    "nome": "",
+    "nomeUsuario": "",
+    "senha": 
 }
 ```
-
--------------------------------------------------
-
-
-```
-https://projetbackend.herokuapp.com/cidades/update/9
-```
-
-```
-{ 
-  nome: " " 
-  qtdBairros: 
-  populacao: 
-  dtAniversario:  
-
-}
-```
-
 
 
 ## Deletando dados
 ### ``/delete/:id``
 
-- Para deletar os dados deve-se utilizar a url juntamente com a rota principal (ex: /paises), com a subrota /delete/[id] conforme exemplos abaixo:
+- Para deletar os dados deve-se utilizar a url juntamente com a rota principal (ex: /usuarios), com a subrota /delete/[id] conforme exemplos abaixo:
 
 ```
-https://projetbackend.herokuapp.com/paises/delete/2
+localhost:3000/usuarios/delete/6198651bedd724a0d6bd4672
 ```
 
-```
-https://projetbackend.herokuapp.com/estados/delete/5
-```
-
-```
-https://projetbackend.herokuapp.com/cidades/delete/9
-```

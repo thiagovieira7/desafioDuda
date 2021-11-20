@@ -19,6 +19,7 @@ function validarAddUpdt(res, reqisicao) {
     });
     return true;
 
+  }
 }
 
 function validaId(res, id) {
@@ -60,7 +61,7 @@ exports.getReadID = async (req, res) => {
 };
 
 exports.postCreate = async (req, res) => {
-//   if (validarAddUpdt(res, req.body)) return;
+  if (validarAddUpdt(res, req.body)) return;
 
   await usuarios
     .create(req.body)
@@ -100,4 +101,4 @@ exports.deleteDel = async (req, res) => {
       console.error(err);
       res.status(400).json({ message: "Erro ao deletar" });
     });
-};
+}

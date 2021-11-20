@@ -9,22 +9,16 @@ function validarAddUpdt(res, reqisicao) {
   } else if (!reqisicao.nomeUsuario) {
     res.status(400).send({
       message:
-        "QTDBAIRROS inválida. Verifique as informações da requisição no body.",
+        "nomeUsuario inválido. Verifique as informações da requisição no body.",
     });
     return true;
   } else if (!reqisicao.senha) {
     res.status(400).send({
       message:
-        "POPULAÇÃO inválida. Verifique as informações da requisição no body.",
+        "senha inválida. Verifique as informações da requisição no body.",
     });
     return true;
-//   } else if (!reqisicao.dtAniversario) {
-//     res.status(400).send({
-//       message:
-//         "DTANIVERSARIO inválida. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-  }
+
 }
 
 function validaId(res, id) {
@@ -71,7 +65,7 @@ exports.postCreate = async (req, res) => {
   await usuarios
     .create(req.body)
     .then(() => {
-      res.status(200).json({ message: "Acessorio cadastrado com sucesso." });
+      res.status(200).json({ message: " cadastrado com sucesso." });
     })
     .catch((err) => {
       res.status(400).json({ message: "Erro ao cadastrar" });

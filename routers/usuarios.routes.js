@@ -11,11 +11,11 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/readall", usuariosController.getAll);
+router.get("/readall", usuariosController.getRead);
 
-router.get("/readid/:id", usuariosController.getlistid);
+router.get("/readid/:id", usuariosController.getReadID);
 
-router.post("/create", usuariosController.postAdd);
+router.post("/create", usuariosController.postCreate);
 
 router.put("/update/:id", usuariosController.putUpdate);
 
